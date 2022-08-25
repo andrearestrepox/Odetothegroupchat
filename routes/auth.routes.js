@@ -42,7 +42,19 @@ if(username === '' || password === '') {
 User.findOne({username})
 .then(userFound => {
     if (!userFound) {
-        res.render
+        res.render('login.hbs', {errorMessage: 'User not found'})
+        return;
+    } else if(bcryptjs.compareSync(password, userFound.passwordHash)) {
+        req.session.currentUser = userFound
+        res.redirect('/userprofile');
+        return;
+    } else {
+        res.render('login', {errorMessage: 'Incorrect password.'});
+        return;
     }
 })
-})
+.catch(error => next(error))
+
+});
+
+module.exports = router
