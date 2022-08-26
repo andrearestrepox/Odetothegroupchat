@@ -34,7 +34,8 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.routes");
 app.use('/', authRoutes)
 
-// const blogpostRoutes = require("./routes/")
+const blogpostRoutes = require("./routes/blogpost.routes");
+app.use('/', blogpostRoutes)
 
 
 
