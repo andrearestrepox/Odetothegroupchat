@@ -1,4 +1,25 @@
 <body>
-    <h1>Hello</h1>
-    
+  <h1>Hello</h1>
+  <form>
+    <div><h1>Your new post goes here</h1></div>
+    <div>
+      <label class="title">Title:
+        <input type="text" name="title" />
+      </label>
+    </div>
+    <div>
+      <label>Content:
+        <textarea name="content" cols="30" rows="5"></textarea>
+      </label>
+    </div>
+
+    <div>
+        <label id="image">Image:
+            <input type="file" name="post-header-image"/>
+        </label>
+    </div>
+
+    <button type="submit" id="create-post">Create Post</button>
+  </form>
+
 </body>

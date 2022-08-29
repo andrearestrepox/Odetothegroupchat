@@ -46,7 +46,7 @@ User.findOne({username})
         return;
     } else if(bcryptjs.compareSync(password, userFound.passwordHash)) {
         req.session.currentUser = userFound
-        res.redirect('/userprofile');
+        res.redirect('/userProfile');
         return;
     } else {
         res.render('login', {errorMessage: 'Incorrect password.'});
@@ -56,5 +56,11 @@ User.findOne({username})
 .catch(error => next(error))
 
 });
+
+router.get('/userProfile', (req,res) => {
+    console.log(req.session)
+    res.render('userprofile.hbs', {user: req.session.currentUser})
+})
+
 
 module.exports = router

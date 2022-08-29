@@ -24,11 +24,15 @@ router.get('/myPosts', (req, res, next) => {
     .populate('blogposts')
     .then(userWithPosts => {
         console.log(' Blog posts from the DB: ', userWithPosts);
-        res.render('blogpost.hbs')
+        res.render('postlist.hbs', { blogposts: userWithPosts.blogposts})
     })
-
+    .catch(err => {
+        console.log(`Error while getting a single blog post from the DB: ${err} `)
+        next(err);
+    })  
 
 })
+// router.get('post/:postId')
 
 
 module.exports = router;

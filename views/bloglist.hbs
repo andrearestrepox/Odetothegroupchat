@@ -1,0 +1,19 @@
+<body>
+
+<h2>Your Blog Posts</h2>
+
+{{#each blogposts}}
+<div>
+    <li>
+        <h1>{{ this.title }}</h1> by {{ this.userId.username}}
+        <a href="/blogpost/{{ this._id }}">Read More</a>
+        <a href="/blogpost{{ this.id }}/edit">Edit</a>
+    </li>
+
+    <form >
+        <button>Delete</button>
+    </form>
+</div>
+{{/each}}
+
+</body>
